@@ -1,7 +1,14 @@
 package data;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+
 public class Zahlen {
 
+    public int tmp;
+    List<Integer> liste = new ArrayList<>();
     public int quersumme(int number) {
         String numberString = numberToString(number);
         int sum = 0;
@@ -13,7 +20,25 @@ public class Zahlen {
         return sum;
     }
 
-    public void test(int number) {
+
+    public void test3(int von, int bis) {
+
+            for ( int i = von; i < bis; i++) {
+                test(i);
+                if (tmp == 1)
+                   liste.add(i);
+            }
+        System.out.println("Liste der gefundenen fröhlichen Zahlen: ");
+        System.out.println(liste);
+    }
+
+
+    public void test2() {
+        IntStream.range(10, 21)
+                .forEach(e -> test(e));
+    }
+
+    public int test(int number) {
         int tmp = 0;
         int counter = 0;
         while ((counter < 9) & (tmp != 1)  ) {
@@ -24,8 +49,13 @@ public class Zahlen {
         }
         if (tmp != 1)
             System.out.println("\nAuf die Dauer ergibt die Summe der Quadrate Ihrer Ziffer nicht 1." +
-                               "\nDas ist leider keine fröhliche Zahl");
-        else System.out.println("\nDas ist eine fröhliche Zahl");
+                               "\nDas ist leider keine fröhliche Zahl\n");
+        else {
+
+            liste.add(number);
+            System.out.println("\nDas ist eine fröhliche Zahl\n");
+        }
+        return tmp;
     }
 
     public int erstelleQuersumme(int number, String numberString) {
