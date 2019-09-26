@@ -15,11 +15,16 @@ public class Zahlen {
 
     public void test(int number) {
         int tmp = 0;
-        while (tmp != 1) {
+        int counter = 0;
+        while ((counter < 9) & (tmp != 1)  ) {
             tmp = erstelleQuersumme(number, numberToString(number));
-            for (int i = 0; tmp > 1; i++)
+            for (int i = 0; (i < 9) & (tmp > 1) ; i++)
                 tmp = erstelleQuersumme(tmp, numberToString(tmp));
+            counter++;
         }
+        if (tmp != 1)
+            System.out.println("\nAuf die Dauer ergibt die Summe der Quadrate Ihrer Ziffer nicht 1." +
+                               "\nDas ist leider keine fröhliche Zahl");
     }
 
     public int erstelleQuersumme(int number, String numberString) {
