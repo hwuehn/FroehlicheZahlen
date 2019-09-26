@@ -14,25 +14,27 @@ public class Zahlen {
     }
 
     public void test(int number) {
-        String numberString = numberToString(number);
-
-        while (true) {
-            int zwischenSumme = 0;
-            for (int k = 0; k < 9; k++) {
-                for ( int i = 0 ; i < numberString.length( ) ; i++ ) {
-                    System.out.print ( numberString.substring( i , i + 1 ) ) ;
-                    System.out.print("^2");
-                    if ( i == numberString.length( ) - 1 ) {
-                        System.out.print( " = " ) ;
-                        System.out.println( quersumme( number ) ) ;
-                    }
-                    else {
-                        System.out.print( " + " ) ;
-                    }
-                }
-            }
-
+        int tmp = 0;
+        while (tmp != 1) {
+            tmp = erstelleQuersumme(number, numberToString(number));
+            for (int i = 0; tmp > 1; i++)
+                tmp = erstelleQuersumme(tmp, numberToString(tmp));
         }
+    }
+
+    public int erstelleQuersumme(int number, String numberString) {
+        for ( int i = 0 ; i < numberString.length( ) ; i++ ) {
+            System.out.print ( numberString.substring( i , i + 1 ) ) ;
+            System.out.print("^2");
+            if ( i == numberString.length( ) - 1 ) {
+               System.out.print( " = " ) ;
+               System.out.println( quersumme( number ) ) ;
+            }
+            else {
+               System.out.print( " + " ) ;
+            }
+        }
+        return quersumme(number);
     }
 
     public String numberToString(int number) {
