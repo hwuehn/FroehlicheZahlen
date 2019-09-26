@@ -6,12 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
         Zahlen isHappy = new Zahlen();
+        Zahlen areTheyHappy = new Zahlen();
+        //test a number:
         //isHappy.test(19);
 
-        isHappy.test3(10,21);
+        // test a list of numbers:
+        areTheyHappy.test3(10,21);
     }
-
-
-
-
 }

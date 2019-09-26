@@ -4,35 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-
 public class Zahlen {
 
     public int tmp;
     List<Integer> liste = new ArrayList<>();
-    public int quersumme(int number) {
-        String numberString = numberToString(number);
-        int sum = 0;
-        int squareNumber = 1;
-        for ( int i = 0 ; i < numberString.length( ) ; i++ ) {
-            squareNumber = square(Integer.parseInt(numberString.substring(i, i + 1)));
-            sum += squareNumber;
-        }
-        return sum;
-    }
-
 
     public void test3(int von, int bis) {
-
-            for ( int i = von; i < bis; i++) {
-                test(i);
-                if (tmp == 1)
-                   liste.add(i);
-            }
+        for ( int i = von; i < bis; i++) {
+           test(i);
+           if (tmp == 1)
+              liste.add(i);
+        }
         System.out.println("Liste der gefundenen fröhlichen Zahlen: ");
         System.out.println(liste);
     }
 
-
+    // can´t catch the result -> added test3()
     public void test2() {
         IntStream.range(10, 21)
                 .forEach(e -> test(e));
@@ -51,7 +38,6 @@ public class Zahlen {
             System.out.println("\nAuf die Dauer ergibt die Summe der Quadrate Ihrer Ziffer nicht 1." +
                                "\nDas ist leider keine fröhliche Zahl\n");
         else {
-
             liste.add(number);
             System.out.println("\nDas ist eine fröhliche Zahl\n");
         }
@@ -76,6 +62,17 @@ public class Zahlen {
     public String numberToString(int number) {
         String numberstring = String.valueOf(number);
         return numberstring;
+    }
+
+    public int quersumme(int number) {
+        String numberString = numberToString(number);
+        int sum = 0;
+        int squareNumber = 1;
+        for ( int i = 0 ; i < numberString.length( ) ; i++ ) {
+            squareNumber = square(Integer.parseInt(numberString.substring(i, i + 1)));
+            sum += squareNumber;
+        }
+        return sum;
     }
 
     public int square(int number) {
