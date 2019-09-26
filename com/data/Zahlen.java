@@ -25,6 +25,7 @@ public class Zahlen {
         if (tmp != 1)
             System.out.println("\nAuf die Dauer ergibt die Summe der Quadrate Ihrer Ziffer nicht 1." +
                                "\nDas ist leider keine fröhliche Zahl");
+        else System.out.println("\nDas ist eine fröhliche Zahl");
     }
 
     public int erstelleQuersumme(int number, String numberString) {
